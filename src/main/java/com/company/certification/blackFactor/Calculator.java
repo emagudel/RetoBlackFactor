@@ -1,4 +1,4 @@
-package com.company.certification.blackFactor.app;
+package com.company.certification.blackFactor;
 
 public class Calculator {
     public int add(int a, int b) {

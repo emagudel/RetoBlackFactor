@@ -1,13 +1,12 @@
 package com.company.certification.blackFactor.steps;
 
-import net.thucydides.core.annotations.Steps;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.java.en.When;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.company.certification.blackFactor.app.Calculator;
+import com.company.certification.blackFactor.Calculator;
 
 public class MathsStepDefinitions {
 
