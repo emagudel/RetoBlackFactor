@@ -1,6 +1,3 @@
-group 'com.carnival.certification'
-version '1.0-SNAPSHOT'
-
 repositories {
     jcenter()
     mavenLocal()
@@ -29,7 +26,7 @@ allprojects {
 }
 
 ext {
-    serenityVersion = '2.0.52'
+    serenityVersion = '2.0.71'
     serenityCucumberVersion = '1.9.39'
 }
 
@@ -72,4 +69,3 @@ tasks.withType(Test) {
 }
 
 gradle.startParameter.continueOnFailure = true
-
