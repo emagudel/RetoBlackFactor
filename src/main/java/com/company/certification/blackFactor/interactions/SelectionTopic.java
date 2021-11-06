@@ -11,10 +11,10 @@ import static com.company.certification.blackFactor.userinterface.SearchBlackFac
 import static com.company.certification.blackFactor.util.manager.VerifyObject.elementVisible;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class SelectionSailTo implements Interaction {
+public class SelectionTopic implements Interaction {
 
-    public static SelectionSailTo inAplication() {
-        return instrumented(SelectionSailTo.class);
+    public static SelectionTopic inAplication() {
+        return instrumented(SelectionTopic.class);
     }
 
     @Override
@@ -26,7 +26,6 @@ public class SelectionSailTo implements Interaction {
                 TOPIC.of(obtain("topic")).resolveFor(actor).click();
                 break;
             }else{
-                //actor.attemptsTo(Scroll.to(SELECTION_ITEM));
                 SELECTION_ITEM.resolveAllFor(actor).get(iterador+1).click();
                 actor.attemptsTo(Wait.aTime(2000));
             }

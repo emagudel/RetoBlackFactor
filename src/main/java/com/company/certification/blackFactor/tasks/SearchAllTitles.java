@@ -1,8 +1,7 @@
 package com.company.certification.blackFactor.tasks;
 
 
-import com.company.certification.blackFactor.interactions.SelectionTopic;
-import com.company.certification.blackFactor.interactions.Wait;
+import com.company.certification.blackFactor.interactions.SelectionAllTitles;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -12,7 +11,7 @@ import static com.company.certification.blackFactor.userinterface.SearchBlackFac
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class SearchBlogs implements Task {
+public class SearchAllTitles implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
@@ -20,11 +19,10 @@ public class SearchBlogs implements Task {
                 WaitUntil.the(BUTTON_BLOG, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(BUTTON_BLOG)
         );
-        actor.attemptsTo(SelectionTopic.inAplication());
-        actor.attemptsTo(Wait.aTime(5000));
+        actor.attemptsTo(SelectionAllTitles.inAplication());
     }
 
-    public static SearchBlogs inTheAplication() {
-        return instrumented(SearchBlogs.class);
+    public static SearchAllTitles inTheAplication() {
+        return instrumented(SearchAllTitles.class);
     }
 }

@@ -2,11 +2,15 @@ package com.company.certification.blackFactor.stepdefinitions;
 
 import com.company.certification.blackFactor.exceptions.ExpectedResultErr;
 import com.company.certification.blackFactor.questions.VerifyExpectedResult;
+import com.company.certification.blackFactor.questions.VerifyExpectedResultAlternate;
+import com.company.certification.blackFactor.tasks.ClearFiles;
+import com.company.certification.blackFactor.tasks.SearchAllTitles;
 import com.company.certification.blackFactor.tasks.SearchBlogs;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
@@ -27,24 +31,42 @@ public class Search_the_Blog_for_an_article_StepDefinition {
         OnStage.setTheStage(new OnlineCast());
     }
 
+    @Before(order = 2)
+    public void clearFiles() {
+        Actor customer = Actor.named("customerName");
+        customer.attemptsTo(ClearFiles.inTheAplication());
+    }
+
     @Given("^(.*) visit the page Blankfactor$")
-    public void i_visit_the_page_carnival(String actorName) {
+    public void i_visit_the_page_blankfactor(String actorName) {
         theActorCalled(actorName).wasAbleTo(theBlackFactorSite());
     }
 
 
     @When("^(.*) search in the Blog an article with this information$")
-    public void i_look_for_cruises_with_this_information(String actorName, List<Map<String, Object>> information) {
+    public void i_search_in_the_Blog_an_article_with_this_information(String actorName, List<Map<String, Object>> information) {
         theActorCalled(actorName).wasAbleTo(loadDataTestWithTheFollowing(information));
         theActorInTheSpotlight().attemptsTo(SearchBlogs.inTheAplication());
     }
 
- /*
-    @Then("^I see the availability of the cruises$")
-    public void i_see_the_availability_of_the_cruises() {
+    @When("^I search in the Blog the articles$")
+    public void i_search_in_the_Blog_the_articles() {
+        theActorInTheSpotlight().attemptsTo(SearchAllTitles.inTheAplication());
+    }
+
+
+    @Then("^I verify the information required for the successful case$")
+    public void i_verify_the_required_information() {
         theActorInTheSpotlight().should(
                 seeThat(VerifyExpectedResult.inAplication())
                         .orComplainWith(ExpectedResultErr.class, EXPECTED_RESULT));
     }
-*/
+
+    @Then("^I verify the information required for the alternate case$")
+    public void i_verify_the_required_information_alternate() {
+        theActorInTheSpotlight().should(
+                seeThat(VerifyExpectedResultAlternate.inAplication())
+                        .orComplainWith(ExpectedResultErr.class, EXPECTED_RESULT));
+    }
+
 }
