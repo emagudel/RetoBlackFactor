@@ -2,14 +2,14 @@
 ### Descripción y contexto
 ---
 
-Podrás realizar todo tipo de actividades para viajar en cruceros los cuales se pueden hacer reservas, busquedas, consultas y conocer nuestros productos y servicios, de una manera fácil y segura. Solo necesitas un computador con conexión a Internet y lo tendrás todo a tu alcance. A toda hora y en todo momento.
+Podrás realizar busquedas de las publicaciones de los autores del Blog de BlankFactor, ademas  conocer nuestros productos y servicios, de una manera fácil y segura. Solo necesitas un computador con conexión a Internet y lo tendrás todo a tu alcance. A toda hora y en todo momento.
 
-Para ejecutar las historia de usuario se puede de forma general a travez de la clase "GeneralTestRunner" que se encuentra en la ruta "src/test/java/com/carnival/certification/automation/runners/GeneralTestRunner.java", o puedes ejecutar las historias
-por cada runner especifico, la rita de cada clase runner es la siguiente: "src/test/java/com/carnival/certification/automation/runners/"
+Para ejecutar las historia de usuario se puede de forma general a travez de la clase "GeneralTestRunner" que se encuentra en la ruta "src/test/java/com/company/certification/blankFactor/runners/GeneralTestRunner.java", o puedes ejecutar las historias
+por cada runner especifico, la rita de cada clase runner es la siguiente: "src/test/java/com/company/certification/blankFactor/runners/"
 
 ####**Estamos a tu alcance estés donde estés**
-Accede a nuestra pagina desde donde quieras, y realiza tus reservas y consultas de viajes sin moverte de tu casa u oficina.  
-Servicio ofrecido por CARNIVAL.
+Accede a nuestra pagina desde donde quieras, y realiza tus consultas de las publicaciones de nuestro Blog sin moverte de tu casa u oficina.  
+Servicio ofrecido por BlackFactor.
 
 ### Resumen de codificación
 ---
@@ -19,11 +19,11 @@ El código se encuentra documentado y la generación del Documento se realizó c
 ---
 Para la ejecución de la automatización se puede utilizar el siguiente comando para la ejecución de un runner en especial: 
 
-gradlew.bat clean test --tests
+gradle clean test --tests "RUTA DEL RUNNER" aggregate -i
 
 Ejemplo: 
 
-gradlew.bat clean test --tests com.carnival.certification.automation.runners.SearchCruisesTestRunner* aggregate -i
+gradle clean test --tests com.company.certification.blankFactor.runners.SearchBlogsTestRunner aggregate -i
 
 
 ### El framework
@@ -89,10 +89,10 @@ Proporciona herramientas para la gestión de espacios de trabajo, escribir, desp
 Inicialmente se levantaron los flujos de cada transacción, para conocer el negocio y tener claro que se debia automatizar.
 Una vez claro el alcance se procede con la automatización de las transacciones, para esto se decide automatizar por capas front.
 
-El front es proporcionado por CARNIVAL.
+El front es proporcionado por BlankFactor.
 ### El navegador y la versión utilizada
 ---
 El navegador utilizado fue: chrome=89.2 y el chromeDriver soportado para esta versión es chromedriver = 2.35. Para más información consultar página de compatibilidad (https://chromedriver.storage.googleapis.com/2.37/notes.txt).
 
-Para correr el proyecto se necesita Java JDK 11 y Gradle preferiblemente con la versión 6.8.
+Para correr el proyecto se necesita Java JDK 11 o 8 y Gradle preferiblemente con la versión 6.1.1
 
