@@ -6,7 +6,9 @@ import com.company.certification.blankFactor.questions.VerifyExpectedResultAlter
 import com.company.certification.blankFactor.tasks.ClearFiles;
 import com.company.certification.blankFactor.tasks.SearchAllTitles;
 import com.company.certification.blankFactor.tasks.SearchBlogs;
+import com.company.certification.blankFactor.tasks.Subscribe;
 import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -67,6 +69,11 @@ public class Search_the_Blog_for_an_article_StepDefinition {
         theActorInTheSpotlight().should(
                 seeThat(VerifyExpectedResultAlternate.inAplication())
                         .orComplainWith(ExpectedResultErr.class, EXPECTED_RESULT));
+    }
+
+    @And("^I Subscribe to our newsletter$")
+    public void i_Subscribe_to_our_newsletter() {
+        theActorInTheSpotlight().attemptsTo(Subscribe.inTheAplication());
     }
 
 }
